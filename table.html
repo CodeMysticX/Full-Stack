@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>{% block title %}Brain Tumor Detection{% endblock %}</title>
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+        td{
+            text-align: center;
+        }
+        .container{
+            background-color: honeydew;
+        }
+    </style>
+</head>
+ <body>
+        <table align="center" border="5" width="500" cellpadding="10" >
+            <caption>Student Details</caption>
+          <tr>
+            <th>Personal Details</th>
+            <th>Professional Details</th>
+          </tr>
+              <td>
+                <div class="container">
+                <table border="5" width="200">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>18</td>
+                        <td>Delhi</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>15</td>
+                        <td>Amritsar</td>
+                    </tr>
+                </table>
+               </td>
+               <td>
+                <table border ="5" width="200">
+                       <tr>
+                            <th>Name</th>
+                            <th>Language</th>
+                       </tr>
+                       <tr>
+                            <td>A</td>
+                            <td>C</td>
+                       </tr>
+                       <tr>
+                            <td>B</td>
+                            <td>Java</td>
+                       </tr>
+                </table>
+            </div>
+          </tr>
+    </table>
+</body>
+</html>
