@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>{% block title %}Brain Tumor Detection{% endblock %}</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        .container{
+            width: 50%;
+        }
+        .container video{
+            display: auto;
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+ <body>
+    <div class="container">
+        <audio controls autoplay muted loop>
+            <source src = "1.mp3" type="audio/mp3">
+        </audio>
+        <video controls  muted loop poster="output.jpg">
+            <source src = "102.mp4" type ="video/mp4">
+        </video>
+    </div>
+ </body>
+</html>
