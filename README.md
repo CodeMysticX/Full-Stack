@@ -16,4 +16,4 @@ At the moment, there is only one contributor to this repository:
 
 Your Name (CodeMysticX)
 
-**Feel free to customize this README.md file according to your preferences and add more content as your repository grows!
+**Feel free to customize this README.md file according to your preferences and add more content as your repository grows!**
