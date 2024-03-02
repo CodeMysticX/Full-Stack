@@ -1,3 +1,5 @@
+<img align="right" alt="coding" width="400" src="https://cdn3d.iconscout.com/3d/premium/thumb/sql-developer-8190885-6594638.png">
+
 ## Full Stack Web Development Repository 🌐
 Welcome to our Full Stack Web Development repository! 🚀 Here, you'll find all the code and resources related to our full stack web development projects.
 
