@@ -1,8 +1,8 @@
-**CSS Positioning Example**
+## CSS Positioning Example
 
 This HTML code demonstrates the use of CSS positioning to create a simple layout with a rectangle and a circle. It's designed to showcase various positioning techniques in CSS.
 
-**CSS Positioning Methods**
+## CSS Positioning Methods
 
 Using different type of css positioning methods:
 1. Static
@@ -11,7 +11,7 @@ Using different type of css positioning methods:
 4. Fixed
 5. Sticky
 
-**HTML Code**
+## HTML Code
 
 ```html
 <!DOCTYPE html>
