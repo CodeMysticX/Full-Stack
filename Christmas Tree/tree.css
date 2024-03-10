@@ -1,0 +1,212 @@
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #5e6ac9;
+}
+
+.christmas-tree {
+    position: relative;
+    top: 50px; /* Adjust the position */
+    cursor: pointer;
+}
+
+.tree {
+    position: absolute;
+    width: 40px; /* Increase the width */
+    border-right: 10px solid transparent; /* Increase border width */
+    border-left: 10px solid transparent; /* Increase border width */
+    border-bottom: 110px solid #823723; /* Increase the height */
+    height: 0;
+    animation: drop 1s linear;
+}
+
+.tree:before {
+    content: "";
+    position: absolute;
+    background-color: #823723;
+    border-radius: 50%;
+    width: 60px; /* Increase the width */
+    height: 20px; /* Increase the height */
+    top: 100px; /* Adjust the position */
+    left: -15px; /* Adjust the position */
+}
+
+.tree:after {
+    content: "";
+    position: absolute;
+    border-right: 150px solid transparent; /* Increase the width */
+    border-left: 150px solid transparent; /* Increase the width */
+    border-bottom: 400px solid #107261; /* Increase the height */
+    width: 0;
+    height: 0;
+    top: -360px; /* Adjust the position */
+    left: -130px; /* Adjust the position */
+}
+
+.tree-details {
+    position: absolute;
+    width: 300px; /* Increase the width */
+    height: 20px; /* Increase the height */
+    background-color: #107261;
+    border-radius: 50%;
+    top: 30px; /* Adjust the position */
+    left: -130px; /* Adjust the position */
+    z-index: 1;
+}
+
+.tree-details:before {
+    content: "";
+    position: absolute;
+    background-color: #0a897c;
+    border-radius: 50%;
+    width: 10px; /* Increase the width */
+    height: 10px; /* Increase the height */
+    top: -20px; /* Adjust the position */
+    left: 40px; /* Adjust the position */
+    box-shadow: 100px -100px #0a897c, 60px -140px #0a897c, 80px -260px #0a897c, 140px -10px #0a897c, 170px -150px #0a897c;
+}
+
+.lights {
+    position: absolute;
+    opacity: 0;
+    animation: light 2s linear infinite, drop 1s linear .5s forwards;
+}
+
+.row-one {
+    position: absolute;
+    background-color: #e9d8a6;
+    border-radius: 50%;
+    width: 20px; /* Increase the width */
+    height: 20px; /* Increase the height */
+    top: -240px; /* Adjust the position */
+    left: -30px; /* Adjust the position */
+    box-shadow: 20px 20px #e9d8a6, 50px 30px #e9d8a6, 80px 36px #e9d8a6, 108px 30px #e9d8a6;
+}
+
+.row-two {
+    position: absolute;
+    background-color: #e9d8a6;
+    border-radius: 50%;
+    width: 20px; /* Increase the width */
+    height: 20px; /* Increase the height */
+    left: -84px; /* Adjust the position */
+    top: -90px; /* Adjust the position */
+    box-shadow: 20px 20px #e9d8a6, 50px 34px #e9d8a6, 80px 48px #e9d8a6, 110px 56px #e9d8a6, 140px 60px #e9d8a6, 170px 58px #e9d8a6, 200px 50px #e9d8a6, 224px 40px #e9d8a6;
+}
+
+.balls {
+    position: absolute;
+    background-color: #f34653;
+    width: 30px; /* Increase the width */
+    height: 30px; /* Increase the height */
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 0;
+    box-shadow: -40px -110px #f34653, 50px -140px #f34653;
+    animation: drop 1s linear 1s forwards;
+}
+
+.balls:before {
+    content: "";
+    position: absolute;
+    background-color: #f34653;
+    width: 26px; /* Increase the width */
+    height: 26px; /* Increase the height */
+    border-radius: 50%;
+    left: -80px; /* Adjust the position */
+    top: -20px; /* Adjust the position */
+    box-shadow: 200px 20px #f34653, 50px -160px #f34653, 120px -240px #f34653;
+}
+
+.balls:after {
+    content: "";
+    position: absolute;
+    background-color: #94d2bd;
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%;
+    top: -80px;
+    left: 80px; 
+    box-shadow: -70px -70px #94d2bd, -70px -210px #94d2bd, -120px 90px #94d2bd;
+}
+
+.star {
+    position: absolute;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid transparent; 
+    border-bottom: 35px solid #f9c819; 
+    border-left: 50px solid transparent; 
+    transform: rotate(-35deg);
+    top: -380px;
+    left: -18px;
+    opacity: 0;
+    animation: dropStar 1s linear 1.5s forwards;
+}
+
+.star:before {
+    border-bottom: 40px solid #f9c819; 
+    border-left: 15px solid transparent; 
+    border-right: 15px solid transparent; 
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -25px; 
+    left: -35px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
+
+.star:after {
+    position: absolute;
+    display: block;
+    top: 1.5px; 
+    left: -52.5px; 
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid transparent; 
+    border-bottom: 35px solid #f9c819; 
+    border-left: 50px solid transparent; 
+    transform: rotate(-70deg);
+    content: '';
+}
+
+@keyframes drop {
+    0% { transform: translateY(-470px) scaleY(0.9); opacity: 0; }
+    5% { opacity: 1; }
+    50% { transform: translateY(0px) scaleY(1); opacity: 1; }
+    65% { transform: translateY(-15px) scaleY(0.9); opacity: 1; }
+    75% { transform: translateY(-18px) scaleY(0.9); opacity: 1; }
+    100% { transform: translateY(0px) scaleY(1); opacity: 1; }
+}
+
+@keyframes dropStar {
+    0% { transform: translateY(-470px) scaleY(0.9) rotate(-35deg); opacity: 0; }
+    5% { opacity: 1; }
+    50% { transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1; }
+    65% { transform: translateY(-15px) scaleY(0.9) rotate(-35deg); opacity: 1; }
+    75% { transform: translateY(-18px) scaleY(0.9) rotate(-35deg); opacity: 1; }
+    100% { transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1; }
+    100% { transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1; }
+}
+
+.shadow {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100px; 
+    height: 40px; 
+    z-index: -1;
+    top: 100px; 
+    left: -20px;
+    animation: scale .5s linear forwards;
+}
+
+@keyframes scale {
+    0% { transform: scaleX(1); }
+    100% { transform: scaleX(3); }
+}
