@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <style>
+        *:before,
+        *:after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: whitesmoke;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: black;
+            letter-spacing: 1.2px;
+        }
+        form{
+            border: 2px solid whitesmoke;
+            backdrop-filter: blur(25px);
+            width: 350px;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            box-shadow: 30px 30px
+            15px rgb(9, 9, 9), 10px 10px 15px rgb(15, 15, 15);
+            padding: 40px 20px;
+            border-radius: 10px;
+        }
+        a.submit{
+            display: block;
+            width: 80%;
+            margin-left: 10%;
+            text-align: center;
+            font: inherit;
+            color: inherit;
+            text-decoration: none;
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 10px 10px 15px rgba(9, 9, 9, 0.55), 10px 10px 15px rgba(5, 5, 5, 0.12);
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"]{
+            margin-bottom: 25px;
+            border: none;
+            background-color: transparent;
+            box-shadow: inset -10px -10px 15px rgba(70, 69, 69, 0.55), inset 10px 10px 15px rgba(66, 66, 66, 0.12);
+            padding: 10px;
+            width: 90%;
+            border-radius: 7px;
+            outline: none;
+        }
+        a.submit:hover{
+            color: #0c0c0c;
+            background-color: #15e38a;
+        }
+        ::placeholder{
+            font-size: 12px;
+            font-weight: 500;
+            color: #ababab;
+            letter-spacing: 1.3px;
+        }
+        input[type="radio"]{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            position: relative;
+            height: 40px;
+            width: 120px;
+            box-shadow: 10px 10px 15px rgba(255,255,255,0.55), 10px 10px 15px rgba(70,70,70,0.12);
+            border: 5px solid #ececec;
+            margin-right: 30px;
+            border-radius: 30px;
+            font: inherit;
+            outline: none;
+            cursor: pointer;
+        }
+        input[type="radio"]:after{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            color: #606060;
+            letter-spacing: 0.5px;
+        }
+        #developer:after{
+            content: "Developer";
+        }
+        #designer:after{
+            content: "Designer";
+        }
+        input[type="radio"]:checked,
+        a:active{
+            box-shadow: 10px 10px 15px rgba(255,255,255,0.55), 10px 10px 15px
+            rgba(70,70,70,0.12), inset -10px -10px 15px rgba(255,255,255,0.55), inset 10px 10px 15px rgba(70,70,70,0.12);
+        }
+        input[type="radio"]:checked:after{
+            color: #15e38a;
+        }
+    </style>
+</head>
+<body>
+    <div class="forms">
+        <form>
+            <h6>Username</h6>
+            <input type="text" placeholder="for ex. Coder">
+            <h6>Who Are You?</h6>
+            <input type="radio" name="job" id="developer">
+            <input type="radio" name="job" id="designer">
+            <h6>Email</h6>
+            <input type="email" placeholder="viralcoder@abc.com">
+            <h6>Password</h6> 
+            <input type="password" placeholder="Minimum 6 characters">
+            <a href="#" class="submit">SUBMIT</a>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('myForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const confettiContainer = document.getElementById('confettiContainer');
+
+        submitBtn.addEventListener('click', function() {
+            if (form.checkValidity()) {
+                alert('Form submitted successfully!');
+                clearForm();
+                showCongratulations();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        function clearForm() {
+            form.reset();
+        }
+
+        function showCongratulations() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff','#6420AA','#FF3EA5','#F5DD61','#9BCF53'];
+            const numConfetti = 200;
+            for (let i = 0; i < numConfetti; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 1}s`;
+                confettiContainer.appendChild(confetti);
+            }
+            setTimeout(() => {
+                confettiContainer.innerHTML = '';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
