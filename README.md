@@ -16,6 +16,6 @@ To get started, simply clone this repository to your local machine and explore t
 ## Contributors 👨‍💻
 At the moment, there is only one contributor to this repository:
 
-**CodeMysticX**
-**TechMavriX**
+**CodeMysticX**<br>
+**TechMaverikX**
 
