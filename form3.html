@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form using Ajax</title>
+    <style>
+        form {
+            backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 500px;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            padding: 2em 2em 2em 2em;
+            box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 0.2);
+        }
+        #image{
+            justify-content: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="forms">
+        <form id="myform">
+            <div class="input-box">
+                <label for="firstname" class="label">First Name</label>
+                <input type="text" id="firstName" class="input-field" maxlength="20" minlength="2" pattern="^[A-Za-z]+[ ]?[A-Za-z]+$" required>
+                <i class="bx bx-user icon"></i><br><br>
+            </div>
+            <div class="input-box">
+                <label for="lastname" class="label">Last Name</label>
+                <input type="text" id="lastName" class="input-field" maxlength="20" minlength="2" pattern="^[A-Za-z]+[ ]?[A-Za-z]+$" required>
+                <i class="bx bx-user icon"></i><br><br>
+            </div>
+            <div id="image">
+                <img src="me.jpeg" width="70%" height="80%">
+            </div>
+            <div class="button">
+                <button type="button" id="submitBtn" onclick="x()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function x() {
+            $.ajax({
+                type: "GET",
+                url: "https://reqres.in/api/users/2",
+                success: function(res) {
+                    $('#firstName').val(res.data.first_name);
+                    $('#lastName').val(res.data.last_name);
+                    $('#image').html("<img src='"+res.data.avatar+"'>");
+                },
+                error: function() {
+                    alert("Ajax call failed!");
+                }
+            });
+        }
+    </script>
+</body>
+</html>
