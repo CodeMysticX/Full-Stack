@@ -17,5 +17,5 @@ To get started, simply clone this repository to your local machine and explore t
 At the moment, there is only one contributor to this repository:
 
 **CodeMysticX**<br>
-**TechMaverikX**
+**TechMaverickX**
 
