@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "poppins", sans-serif;
+        }
+        :root {
+            --primary-color: #c6c3c3;
+            --second-color: #ffffff;
+            --black-color: #000000;
+            --text-color: #000000;
+        }
+        body {
+            background-image: url("b3.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 500px;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            border: 2px solid var(--primary-color);
+            padding: 2em 2em 2em 2em;
+            box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 0.2);
+        }
+        .button {
+            background-color: rgba(43, 43, 205, 0.991);
+            color: aliceblue;
+            align-self: center;
+            width: 100%;
+            height: 50px;
+            background: #c6c3c3;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            text-decoration: underline;
+            background-color: blue;
+            transition: 0.3s;
+        }
+        a {
+            text-decoration: none;
+            color: var(--second-color);
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .input-box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            box-shadow: #000000;
+        }
+        .input-field {
+            width: 100%;
+            height: 55px;
+            font-size: 16px;
+            background: transparent;
+            color: var(--text-color);
+            padding-inline: 20px 50px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            outline: #000000;
+        }
+        #user {
+            margin-bottom: 10px;
+        }
+        .label {
+            position: absolute;
+            top: -28px;
+            left: 20px;
+            transition: 0.2s;
+            font-weight: bold;
+        }
+        p{
+            font-weight: bold;
+        }    </style>
+</head>
+<body>
+    <div class="forms">
+        <form id="myForm">
+            <div class="input-box">
+                <input type="text" id="user" class="input-field" required>
+                <label for="name" class="label">Name</label>
+                <i class="bx bx-user icon"></i>
+            </div>
+            <div class="input-box">
+                <input type="number" id="age" class="input-field" required>
+                <label for="age" class="label">Age</label>
+                <i class="bx bx-user icon"></i>
+            </div>
+            <div class="input-box">
+                <p>Gender</p>
+                <label for="Male">Male <input class="form-check-input" type="radio" id="Male" name="gender" required></label>
+                <label for="Female">Female <input class="form-check-input" type="radio" id="Female" name="gender"></label>
+            </div>
+            <div class="button">
+                <button type="button" id="submitBtn" class="button">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>6
+function checkValidity(name, age) {
+    const isNameValid = /^[A-Za-z\s]+$/.test(name);
+    const isAgeValid = age >= 20 && age <= 40;
+    return isNameValid && isAgeValid;
+}
+
+const form = document.getElementById('myForm');
+const submitBtn = document.getElementById('submitBtn');
+
+submitBtn.addEventListener('click', function() {
+    const nameInput = document.getElementById('user');
+    const ageInput = document.getElementById('age');
+    const name = nameInput.value.trim();
+    const age = parseInt(ageInput.value);
+
+    let x = document.getElementById('x');
+    if (!x) {
+        x = document.createElement('div');
+        x.id = 'x';
+        form.appendChild(x);
+    } else {
+        x.innerHTML = '';
+    }
+
+    if (form.checkValidity()) {
+        if (checkValidity(name, age)) {
+            alert('Form submitted successfully!');
+            clearForm();
+        } else {
+            if (!/^[A-Za-z\s]+$/.test(name)) {
+                displayError('Name must contain only alphabetic characters.');
+            }
+            if (age < 20 || age > 40) {
+                displayError('Age must be between 20 and 40.');
+            }
+        }
+    } else {
+        alert('Please fill in all required fields.');
+    }
+});
+
+function displayError(message) {
+    const a = document.createElement('p');
+    a.textContent = message;
+    a.classList.add('error-message');
+    a.setAttribute("style","color:red");
+    document.getElementById('x').appendChild(a);
+}
+
+function clearForm() {
+    form.reset();
+}
+
+    </script>
+</body>
+</html>
